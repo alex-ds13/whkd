@@ -1,3 +1,4 @@
+pub use chumsky;
 use chumsky::prelude::*;
 use std::path::PathBuf;
 use thiserror::Error;
@@ -14,8 +15,6 @@ pub enum WhkdError {
 }
 
 pub fn load(path: &PathBuf) -> Result<Whkdrc, WhkdError> {
-    use chumsky::Parser;
-
     let contents = std::fs::read_to_string(path)?;
 
     parser()
